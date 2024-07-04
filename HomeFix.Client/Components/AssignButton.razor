@@ -1,0 +1,37 @@
+﻿@using HomeFix.Shared.Entities
+
+@if (showPopUp)
+{
+    <div class="modal" style="width:300px; height:350px;">
+
+        <select>
+            @foreach (var tecnico in Tecnici)
+            {
+                <option value="@(tecnico)" id="@tecnico.Id" >@tecnico.Name</option>
+            }
+        </select>
+    </div>
+}
+else
+{
+    <button @onclick="@(()=> showPopUp = !showPopUp)">Assign</button>
+}
+
+@code {
+    private readonly HttpClient _http = new HttpClient();
+
+    [Parameter]
+    public bool showPopUp { get; set; } = false;
+    [Parameter]
+    public List<Tecnichian> Tecnici { get; set; }
+
+    public Tecnichian TecnicoSelected { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var resp = await _http.GetFromJsonAsync<List<Tecnichian>>("https://localhost:7284/api/Tec");
+
+        Tecnici = resp ?? throw new ApplicationException("Non è stato possibile caricare i tecnici");
+    }
+
+}

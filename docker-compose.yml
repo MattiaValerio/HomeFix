@@ -1,0 +1,39 @@
+﻿services:
+  homefix.api:
+    image: homefix.api
+    container_name: homefix.api
+    build:
+      context: .
+      dockerfile: HomeFix.Api/Dockerfile
+    ports:
+      - "5000:8080"
+
+  homefix.client:
+    image: homefix.client
+    container_name: homefix.client
+    build:
+      context: .
+      dockerfile: HomeFix.Client/Dockerfile
+    ports:
+      - "80:8080"
+      - "443:8081"
+
+  homefix.db:
+    image: postgres:latest
+    container_name: homefix.db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: homefix
+
+  pgadmin:
+    depends_on:
+      - homefix.db
+    image: dpage/pgadmin4:latest
+    hostname: pgadmin
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"

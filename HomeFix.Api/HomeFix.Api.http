@@ -1,0 +1,6 @@
+@HomeFix.Api_HostAddress = http://localhost:5249
+
+GET {{HomeFix.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

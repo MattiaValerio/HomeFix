@@ -1,0 +1,40 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  homefix.api:
+    build:
+      context: "C:\\Users\\matti\\Desktop\\HomeFix"
+      dockerfile: "HomeFix.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/HomeFix.Api.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "homefix.api:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\matti\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\matti\\Desktop\\HomeFix\\HomeFix.Api:/app:rw"
+    - "C:\\Users\\matti\\Desktop\\HomeFix:/src:rw"
+    working_dir: "/app"
+  homefix.client:
+    build:
+      context: "C:\\Users\\matti\\Desktop\\HomeFix"
+      dockerfile: "HomeFix.Client/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/../../../.nuget/packages/microsoft.aspnetcore.components.webassembly.devserver/8.0.6/tools/blazor-devserver.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "homefix.client:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\matti\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\matti\\Desktop\\HomeFix\\HomeFix.Client:/app:rw"
+    - "C:\\Users\\matti\\Desktop\\HomeFix:/src:rw"
+    working_dir: "/app"

@@ -1,0 +1,11 @@
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\bin\Debug\net8.0\HomeFix.Shared.deps.json
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\bin\Debug\net8.0\HomeFix.Shared.dll
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\bin\Debug\net8.0\HomeFix.Shared.pdb
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\HomeFix.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\HomeFix.Shared.AssemblyInfoInputs.cache
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\HomeFix.Shared.AssemblyInfo.cs
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\HomeFix.Shared.csproj.CoreCompileInputs.cache
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\HomeFix.Shared.dll
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\refint\HomeFix.Shared.dll
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\HomeFix.Shared.pdb
+C:\Users\matti\Desktop\HomeFix\HomeFix.Shared\obj\Debug\net8.0\ref\HomeFix.Shared.dll

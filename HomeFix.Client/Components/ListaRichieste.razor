@@ -1,0 +1,52 @@
+﻿@using HomeFix.Shared.Entities
+@using HomeFix.Shared.Enums
+<h3 class="text-center">Lista Richieste</h3>
+
+@if(Richieste == null)
+{
+    <p>Caricamento in corso...</p>
+}
+else
+{
+    <div class="d-flex flex-column gap-3">
+        @foreach (var richiesta in Richieste)
+        {
+            <div class="card d-flex flex-column">
+                <div class="card-header">
+                    <h3>@richiesta.Description</h3>
+                </div>
+                <div class="card-body">
+                    <p>@richiesta.RequestStatus.ToString()</p>
+                </div>
+                @if(richiesta.RequestStatus == RequestStatus.NotAssigned)
+                {
+                    <AssignButton Tecnici="@(Tecnici)"/>
+                }
+            </div>
+        }
+    </div>
+}
+
+
+@code {
+    
+    readonly HttpClient _http = new HttpClient();
+
+    public List<Request>? Richieste { get; set; }
+    public List<Tecnichian> Tecnici { get; set; }
+
+    private bool showPopUp= false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var responseReq = await _http.GetFromJsonAsync<List<Request>>("https://localhost:7284/api/Request");
+
+        var responseTec = await _http.GetFromJsonAsync<List<Tecnichian>>("https://localhost:7284/api/Tec");
+
+        Tecnici = responseTec ?? throw new ApplicationException("Non è stato possibile caricare i tecnici");
+
+        Richieste = responseReq ?? throw new ApplicationException("Non è stato possibile caricare le richieste");
+    }
+
+    
+}
